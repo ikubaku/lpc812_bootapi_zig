@@ -1,0 +1,3 @@
+= lpc812_bootapi_zig
+
+A sample code that calls LPC81x boot ROM APIs
