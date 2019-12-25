@@ -61,17 +61,20 @@ extern var __bss_end: u8;
 export fn ipl_main() noreturn {
     // zero-fill bss section
     @memset(@ptrCast(*volatile [1]u8, &__bss_start), 0, @ptrToInt(&__bss_end) - @ptrToInt(&__bss_start));
+
+    // call the main routine
     @import("main.zig").hako_main();
     
     // do infinite loop
     //while(true) {}
 }
 
-// interrupt handlers
+// default interrupt handler
 fn default_handler() noreturn {
     while(true) {}
 }
 
+// interrupt handlers
 export fn nm_interrupt() noreturn {
     default_handler();
 }

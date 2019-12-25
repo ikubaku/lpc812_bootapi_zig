@@ -19,6 +19,7 @@ pub fn set_dir(pin: u5, dir: IODir) void {
     }
 }
 
+// LED is on P0_15
 pub fn led_init() void {
     set_dir(15, IODir.Output);
 }

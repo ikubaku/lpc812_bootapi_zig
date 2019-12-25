@@ -9,10 +9,12 @@ pub fn hako_main() noreturn {
     gpio.led_init();
 
     var uart_api = uart.init_uart();
+
+    // Use USART0 transciever
     const uart0 = uart_api.init_port(uart.UartPort.USART0);
     _ = uart_api.configure_port(uart0, 9600);
 
-    // Do the application task
+    // Do the echo back
     uart_api.println(uart0, c"Hello world from ziglang!!", 32);
     uart_api.println(uart0, c"Do the echo-back task:", 32);
     

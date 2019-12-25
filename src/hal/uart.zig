@@ -49,6 +49,7 @@ const UartDriverRoutines = extern struct {
 };
 
 const Uart = struct {
+    // Assume required memory size is 40 bytes
     peripheral_ram: [40]u8,
     routine_table: *UartDriverRoutines,
 
@@ -99,7 +100,7 @@ const Uart = struct {
 };
 
 pub fn init_uart() Uart {
-    // Source the clock to all the USART blocks
+    // Source the clock to *all* the USART blocks
     const clk_ctl_ptr = @intToPtr(*volatile u32, SYSAHBCLKCTRL_ADDR);
     clk_ctl_ptr.* |= 0x0001C000;
 

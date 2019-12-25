@@ -1,5 +1,6 @@
 ENTRY(_start)
 
+// Change LENGTHs here if you are using LPC811 or LPC810
 MEMORY {
     FLASH : ORIGIN = 0x00000000, LENGTH = 16K
     RAM : ORIGIN = 0x10000000, LENGTH = 4K
